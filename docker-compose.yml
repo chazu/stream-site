@@ -1,0 +1,20 @@
+version: '2'
+services:
+  nginx:
+    build: ./docker/nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./site.conf:/etc/nginx/conf.d/000_site.conf
+      - .:/app
+    links:
+      - php
+  php:
+    image: phpdockerio/php7-fpm
+    volumes:
+      - .:/app
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
