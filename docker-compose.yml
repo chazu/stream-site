@@ -3,18 +3,25 @@ services:
   nginx:
     build: ./docker/nginx
     ports:
-      - "8080:80"
+      - "3000:80"
+      - "8080:8080"
+      - "1935:1935"
+      - "9000:9000"
     volumes:
-      - ./site.conf:/etc/nginx/conf.d/000_site.conf
       - .:/app
-    links:
-      - php
   php:
     image: phpdockerio/php7-fpm
+    build: ./docker/php7-fpm
     volumes:
       - .:/app
   db:
     image: postgres
     restart: always
+    ports:
+      - "5431:5432"
+    volumes:
+      - .:/app
     environment:
-      POSTGRES_PASSWORD: example
+      POSTGRES_PASSWORD: password123
+      POSTGRES_USER: streamer
+      POSTGRES_DB: streamer

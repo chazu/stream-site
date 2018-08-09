@@ -20,7 +20,7 @@ spl_autoload_register(function ($class) {
 });
 
 // verify we're logged in
-require 'inc/auth.php';
+// require 'inc/auth.php';
 
 // Load RTMP channels informations
 $rtmpclass = new rtmp();
@@ -28,7 +28,7 @@ $rtmpinfo = $rtmpclass->checkStreams();
 
 // grab account info
 $email = filter_var($_SESSION['authenticated'], FILTER_VALIDATE_EMAIL);
-$accountinfo = $user->info($email);
+// $accountinfo = $user->info($email);
 
 // functions to convert raw bytes/bits to something more readable for stream info
 /**
@@ -68,7 +68,7 @@ if ($page === 'watch') {
 	$streamkey = $uriVars[1];
 	$subemail = $user->updateStreamkey($streamkey, 'email');
 	// Set up data for checking subscription status
-	$sub = new subscription($accountinfo['api_key'], $streamkey);
+	// $sub = new subscription($accountinfo['api_key'], $streamkey);
 	$list = $sub->_list();
 	$subarray = json_decode($list);
 	if (in_array($subemail, $subarray->subscribed)) {

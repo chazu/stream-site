@@ -23,6 +23,6 @@ WITH (
   OIDS=FALSE
 );
 ALTER TABLE users
-  OWNER TO pg_sql_account_here;
+  OWNER TO streamer;
 COMMENT ON TABLE users
   IS 'Table for managing user information/data';

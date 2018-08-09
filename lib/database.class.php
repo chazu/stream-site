@@ -10,11 +10,11 @@
 class database {
 
 	// Connection params
-	private $host = 'localhost';
+	private $host = 'db';
 	private $port = '5432';
-	private $user = '';
-	private $password = '';
-	private $dbname = '';
+	private $user = 'streamer';
+	private $password = 'password123';
+	private $dbname = 'streamer';
 	
 	// This can be accessed by the database class and any class that extends database by using $this->link
 	public $link;

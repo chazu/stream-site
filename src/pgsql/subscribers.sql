@@ -15,6 +15,6 @@ WITH (
   OIDS=FALSE
 );
 ALTER TABLE subscribers
-  OWNER TO pg_sql_account_here;
+  OWNER TO streamer;
 COMMENT ON TABLE subscribers
   IS 'Table for managing subscribers for channels';

@@ -29,7 +29,7 @@ $logfile = '/var/log/rachni/';
 $site_recpath = '/var/rachni/rec/';
 
 // enable/disable registration. TODO - Move this to the database
-$reg_open = false;
+$reg_open = true;
 
 // Title at the top left of the page.
 $sitetitle = "Rachni Stream"; // max 16 characters
